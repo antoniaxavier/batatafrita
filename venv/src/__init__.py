@@ -1,6 +1,4 @@
-import re
-
-alfabeto = 'abcdefghijklmnopqrstuvwxyz'
+alfabeto = 'abcdefghijklmnopqrstuvwxyzãáàóôòéêè,.'
 
 def cifrar(texto, chave):
     texto_cifrado = ''
