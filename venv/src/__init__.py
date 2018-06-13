@@ -1,3 +1,5 @@
+import re
+
 alfabeto = 'abcdefghijklmnopqrstuvwxyz'
 
 def cifrar(texto, chave):
@@ -6,8 +8,11 @@ def cifrar(texto, chave):
     i = 0
     for letra in texto:
         soma = alfabeto.find(letra) + alfabeto.find(chave[i % len(chave)])
-        modulo = int(soma) % len(alfabeto)
-        texto_cifrado = texto_cifrado + str(alfabeto[modulo])
+        if alfabeto.find(letra) == -1:
+            texto_cifrado += " "
+        else:
+            modulo = int(soma) % len(alfabeto)
+            texto_cifrado += str(alfabeto[modulo])
         i += 1
     return texto_cifrado
 
@@ -17,8 +22,11 @@ def decifrar(texto, chave):
     i = 0
     for letra in texto:
         soma = alfabeto.find(letra) - alfabeto.find(chave[i % len(chave)])
-        modulo = int(soma) % len(alfabeto)
-        texto_cifrado = texto_cifrado + str(alfabeto[modulo])
+        if alfabeto.find(letra) == -1:
+            texto_cifrado += " "
+        else:
+            modulo = int(soma) % len(alfabeto)
+            texto_cifrado += str(alfabeto[modulo])
         i += 1
     return texto_cifrado
 
